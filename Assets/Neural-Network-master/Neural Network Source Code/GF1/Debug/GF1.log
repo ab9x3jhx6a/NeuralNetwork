@@ -1,0 +1,52 @@
+﻿Build started 12/2/2015 11:06:45 PM.
+     1>Project "J:\Game\Junior\GameAI\GameAIFinal\Assets\Neural-Network-master\Neural Network Source Code\GF1\GF1.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(J:\Game\Junior\GameAI\GameAIFinal\Assets\Neural-Network-master\Neural Network Source Code\GF1\../bin\GF1.dll) does not match the Linker's OutputFile property value (J:\Game\Junior\GameAI\GameAIFinal\Assets\Neural-Network-master\Neural Network Source Code\bin\GF1_d.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(GF1) does not match the Linker's OutputFile property value (GF1_d). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>Link:
+         J:\Game\VS2015\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin\GF1_d.dll" /INCREMENTAL /NOLOGO /LIBPATH:.\External\fmod\lib /LIBPATH:.\External\devil\lib Winmm.lib OpenGL32.lib fmodvc.lib devil.lib ilu.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"../bin\GF1_d.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"lib/GF1_d.lib" /MACHINE:X86 /SAFESEH /DLL Debug\GF1.obj
+         Debug\GF1_Application.obj
+         Debug\GF1_Colour.obj
+         Debug\GF1_Graphics.obj
+         Debug\GF1_IGame.obj
+         Debug\GF1_Input.obj
+         Debug\GF1_Music.obj
+         Debug\GF1_Sound.obj
+         Debug\GF1_Sprite.obj
+         Debug\GF1_stdafx.obj
+         Debug\GF1_Text.obj
+         Debug\GF1_Texture.obj
+         Debug\GF1_Texture_Manager.obj
+         Debug\GF1_Tga.obj
+         Debug\GF1_Vector3.obj
+     1>GF1.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+     1>fmodvc.lib(fmod.dll) : error LNK2026: module unsafe for SAFESEH image.
+            Creating library lib/GF1_d.lib and object lib/GF1_d.exp
+     1>../bin\GF1_d.dll : fatal error LNK1281: Unable to generate SAFESEH image.
+     1>Done Building Project "J:\Game\Junior\GameAI\GameAIFinal\Assets\Neural-Network-master\Neural Network Source Code\GF1\GF1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.14

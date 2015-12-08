@@ -1,0 +1,135 @@
+﻿Build started 12/7/2015 10:21:13 AM.
+     1>Project "J:\Game\Junior\GameAI\GameAIFinal\Assets\Neural-Network-master\Neural Network Source Code\Game\Game.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(J:\Game\Junior\GameAI\GameAIFinal\Assets\Neural-Network-master\Neural Network Source Code\Game\../bin\Game.exe) does not match the Linker's OutputFile property value (J:\Game\Junior\GameAI\GameAIFinal\Assets\Neural-Network-master\Neural Network Source Code\bin\Game_d.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(Game) does not match the Linker's OutputFile property value (Game_d). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>Link:
+         J:\Game\VS2015\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin\Game_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:../GF1/lib Xinput.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"../bin\Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"../bin\Game.lib" /MACHINE:X86 /SAFESEH Debug\AABox.obj
+         Debug\AARect.obj
+         Debug\Agent.obj
+         Debug\Area.obj
+         Debug\Circle.obj
+         Debug\Direction.obj
+         Debug\EditorInterface.obj
+         Debug\EntityManager.obj
+         Debug\GameGlobals.obj
+         Debug\GameInterface.obj
+         Debug\GameSettings.obj
+         Debug\GameTimer.obj
+         Debug\GeneticAlgorithm.obj
+         Debug\Line2.obj
+         Debug\Line3.obj
+         Debug\LineSegment2.obj
+         Debug\LineSegment3.obj
+         Debug\Main.obj
+         Debug\Math.obj
+         Debug\Matrix2.obj
+         Debug\Matrix3.obj
+         Debug\Matrix4.obj
+         Debug\Mirror.obj
+         Debug\NeuralNet.obj
+         Debug\NLayer.obj
+         Debug\Quaternion.obj
+         Debug\Random.obj
+         Debug\Ray2.obj
+         Debug\Sphere.obj
+         Debug\TrackPolygon.obj
+         Debug\Vector2.obj
+         Debug\Vector3.obj
+         Debug\Vector4.obj
+     1>AABox.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::Sprite(char const *,unsigned int,unsigned int,unsigned int,unsigned int,bool)" (__imp_??0Sprite@GF1@@QAE@PBDIIII_N@Z)
+     1>Agent.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::Sprite(char const *,unsigned int,unsigned int,unsigned int,unsigned int,bool)" (__imp_??0Sprite@GF1@@QAE@PBDIIII_N@Z)
+     1>EditorInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::Sprite(char const *,unsigned int,unsigned int,unsigned int,unsigned int,bool)" (__imp_??0Sprite@GF1@@QAE@PBDIIII_N@Z)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::Sprite(char const *,unsigned int,unsigned int,unsigned int,unsigned int,bool)" (__imp_??0Sprite@GF1@@QAE@PBDIIII_N@Z)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::Sprite(char const *,unsigned int,unsigned int,unsigned int,unsigned int,bool)" (__imp_??0Sprite@GF1@@QAE@PBDIIII_N@Z)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::~Sprite(void)" (__imp_??1Sprite@GF1@@QAE@XZ)
+     1>Agent.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::~Sprite(void)" (__imp_??1Sprite@GF1@@QAE@XZ)
+     1>EditorInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::~Sprite(void)" (__imp_??1Sprite@GF1@@QAE@XZ)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::~Sprite(void)" (__imp_??1Sprite@GF1@@QAE@XZ)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Sprite::~Sprite(void)" (__imp_??1Sprite@GF1@@QAE@XZ)
+     1>Agent.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: unsigned int __thiscall GF1::Sprite::GetFrameWidth(void)const " (__imp_?GetFrameWidth@Sprite@GF1@@QBEIXZ) referenced in function "private: void __thiscall CarDemo::Agent::BuildBounds(void)" (?BuildBounds@Agent@CarDemo@@AAEXXZ)
+     1>Agent.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: unsigned int __thiscall GF1::Sprite::GetFrameHeight(void)const " (__imp_?GetFrameHeight@Sprite@GF1@@QBEIXZ) referenced in function "private: void __thiscall CarDemo::Agent::BuildBounds(void)" (?BuildBounds@Agent@CarDemo@@AAEXXZ)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::Render(void)" (__imp_?Render@Sprite@GF1@@QAEXXZ)
+     1>Agent.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::Render(void)" (__imp_?Render@Sprite@GF1@@QAEXXZ)
+     1>EditorInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::Render(void)" (__imp_?Render@Sprite@GF1@@QAEXXZ)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::Render(void)" (__imp_?Render@Sprite@GF1@@QAEXXZ)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::Render(void)" (__imp_?Render@Sprite@GF1@@QAEXXZ)
+     1>Agent.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::SetPosition(class GF1::Vector3 const &)" (__imp_?SetPosition@Sprite@GF1@@QAEXABVVector3@2@@Z) referenced in function "public: void __thiscall CarDemo::Agent::Render(void)" (?Render@Agent@CarDemo@@QAEXXZ)
+     1>EditorInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::SetPosition(class GF1::Vector3 const &)" (__imp_?SetPosition@Sprite@GF1@@QAEXABVVector3@2@@Z)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::SetPosition(class GF1::Vector3 const &)" (__imp_?SetPosition@Sprite@GF1@@QAEXABVVector3@2@@Z)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::SetPosition(class GF1::Vector3 const &)" (__imp_?SetPosition@Sprite@GF1@@QAEXABVVector3@2@@Z)
+     1>Agent.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::SetAngle(float)" (__imp_?SetAngle@Sprite@GF1@@QAEXM@Z) referenced in function "public: void __thiscall CarDemo::Agent::Render(void)" (?Render@Agent@CarDemo@@QAEXXZ)
+     1>Agent.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::DrawLine(class GF1::Vector3 const &,class GF1::Vector3 const &,class GF1::Colour const &,bool,float)" (__imp_?DrawLine@GF1@@YAXABVVector3@1@0ABVColour@1@_NM@Z) referenced in function "private: void __thiscall CarDemo::Agent::DrawAgentBounds(void)" (?DrawAgentBounds@Agent@CarDemo@@AAEXXZ)
+     1>EditorInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::DrawLine(class GF1::Vector3 const &,class GF1::Vector3 const &,class GF1::Colour const &,bool,float)" (__imp_?DrawLine@GF1@@YAXABVVector3@1@0ABVColour@1@_NM@Z)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::DrawLine(class GF1::Vector3 const &,class GF1::Vector3 const &,class GF1::Colour const &,bool,float)" (__imp_?DrawLine@GF1@@YAXABVVector3@1@0ABVColour@1@_NM@Z)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::DrawLine(class GF1::Vector3 const &,class GF1::Vector3 const &,class GF1::Colour const &,bool,float)" (__imp_?DrawLine@GF1@@YAXABVVector3@1@0ABVColour@1@_NM@Z)
+     1>Agent.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::DrawCircle(class GF1::Vector3 const &,float,class GF1::Colour const &,bool,float,int)" (__imp_?DrawCircle@GF1@@YAXABVVector3@1@MABVColour@1@_NMH@Z) referenced in function "public: void __thiscall CarDemo::Agent::Render(void)" (?Render@Agent@CarDemo@@QAEXXZ)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::DrawCircle(class GF1::Vector3 const &,float,class GF1::Colour const &,bool,float,int)" (__imp_?DrawCircle@GF1@@YAXABVVector3@1@MABVColour@1@_NMH@Z)
+     1>Agent.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::DrawFilledCircle(class GF1::Vector3 const &,float,class GF1::Colour const &,bool,int)" (__imp_?DrawFilledCircle@GF1@@YAXABVVector3@1@MABVColour@1@_NH@Z) referenced in function "public: void __thiscall CarDemo::Agent::Render(void)" (?Render@Agent@CarDemo@@QAEXXZ)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::Vector3(void)" (__imp_??0Vector3@GF1@@QAE@XZ)
+     1>Agent.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::Vector3(void)" (__imp_??0Vector3@GF1@@QAE@XZ)
+     1>EditorInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::Vector3(void)" (__imp_??0Vector3@GF1@@QAE@XZ)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::Vector3(void)" (__imp_??0Vector3@GF1@@QAE@XZ)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::Vector3(void)" (__imp_??0Vector3@GF1@@QAE@XZ)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::~Vector3(void)" (__imp_??1Vector3@GF1@@QAE@XZ)
+     1>Agent.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::~Vector3(void)" (__imp_??1Vector3@GF1@@QAE@XZ)
+     1>EditorInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::~Vector3(void)" (__imp_??1Vector3@GF1@@QAE@XZ)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::~Vector3(void)" (__imp_??1Vector3@GF1@@QAE@XZ)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::~Vector3(void)" (__imp_??1Vector3@GF1@@QAE@XZ)
+     1>Agent.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::RED" (__imp_?RED@Colour@GF1@@2V12@B)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::RED" (__imp_?RED@Colour@GF1@@2V12@B)
+     1>Agent.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::GREEN" (__imp_?GREEN@Colour@GF1@@2V12@B)
+     1>EditorInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::GREEN" (__imp_?GREEN@Colour@GF1@@2V12@B)
+     1>Agent.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::BLUE" (__imp_?BLUE@Colour@GF1@@2V12@B)
+     1>Agent.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::WHITE" (__imp_?WHITE@Colour@GF1@@2V12@B)
+     1>EditorInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::WHITE" (__imp_?WHITE@Colour@GF1@@2V12@B)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::WHITE" (__imp_?WHITE@Colour@GF1@@2V12@B)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::WHITE" (__imp_?WHITE@Colour@GF1@@2V12@B)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) bool __cdecl GF1::IsKeyDown(int)" (__imp_?IsKeyDown@GF1@@YA_NH@Z) referenced in function "public: virtual void __thiscall CarDemo::EditorInterface::Logic(void)" (?Logic@EditorInterface@CarDemo@@UAEXXZ)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) bool __cdecl GF1::IsKeyDown(int)" (__imp_?IsKeyDown@GF1@@YA_NH@Z)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) bool __cdecl GF1::IsKeyHit(int)" (__imp_?IsKeyHit@GF1@@YA_NH@Z) referenced in function "public: virtual void __thiscall CarDemo::EditorInterface::Logic(void)" (?Logic@EditorInterface@CarDemo@@UAEXXZ)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) bool __cdecl GF1::IsKeyHit(int)" (__imp_?IsKeyHit@GF1@@YA_NH@Z)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall GF1::IGame::~IGame(void)" (__imp_??1IGame@GF1@@UAE@XZ) referenced in function __unwindfunclet$??0EditorInterface@CarDemo@@QAE@XZ$0
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall GF1::IGame::~IGame(void)" (__imp_??1IGame@GF1@@UAE@XZ)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::IGame::IGame(void)" (__imp_??0IGame@GF1@@QAE@XZ) referenced in function "public: __thiscall CarDemo::EditorInterface::EditorInterface(void)" (??0EditorInterface@CarDemo@@QAE@XZ)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::IGame::IGame(void)" (__imp_??0IGame@GF1@@QAE@XZ)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::Vector3(float,float,float)" (__imp_??0Vector3@GF1@@QAE@MMM@Z) referenced in function "private: void __thiscall CarDemo::EditorInterface::DisplayFPS(void)" (?DisplayFPS@EditorInterface@CarDemo@@AAEXXZ)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Vector3::Vector3(float,float,float)" (__imp_??0Vector3@GF1@@QAE@MMM@Z)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __thiscall GF1::Vector3::IsZero(void)const " (__imp_?IsZero@Vector3@GF1@@QBE_NXZ) referenced in function "public: virtual void __thiscall CarDemo::EditorInterface::Render(void)" (?Render@EditorInterface@CarDemo@@UAEXXZ)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Vector3::Set(float,float,float)" (__imp_?Set@Vector3@GF1@@QAEXMMM@Z) referenced in function "public: virtual void __thiscall CarDemo::EditorInterface::OnMouseEvent(enum GF1::MouseButton,enum GF1::MouseEvent,int,int,float,float)" (?OnMouseEvent@EditorInterface@CarDemo@@UAEXW4MouseButton@GF1@@W4MouseEvent@4@HHMM@Z)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Vector3::Set(float,float,float)" (__imp_?Set@Vector3@GF1@@QAEXMMM@Z)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Vector3::Set(float,float,float)" (__imp_?Set@Vector3@GF1@@QAEXMMM@Z)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Vector3::SetZero(void)" (__imp_?SetZero@Vector3@GF1@@QAEXXZ) referenced in function "public: __thiscall CarDemo::EditorInterface::EditorInterface(void)" (??0EditorInterface@CarDemo@@QAE@XZ)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Vector3::SetZero(void)" (__imp_?SetZero@Vector3@GF1@@QAEXXZ)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __thiscall GF1::Sprite::Bad(void)const " (__imp_?Bad@Sprite@GF1@@QBE_NXZ) referenced in function "private: void __thiscall CarDemo::EditorInterface::VerifySprite(class GF1::Sprite const &)" (?VerifySprite@EditorInterface@CarDemo@@AAEXABVSprite@GF1@@@Z)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: char const * __thiscall GF1::Sprite::GetTextureName(void)const " (__imp_?GetTextureName@Sprite@GF1@@QBEPBDXZ) referenced in function "private: void __thiscall CarDemo::EditorInterface::VerifySprite(class GF1::Sprite const &)" (?VerifySprite@EditorInterface@CarDemo@@AAEXABVSprite@GF1@@@Z)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall GF1::Sprite::SetBlendMode(enum GF1::Sprite::BlendMode)" (__imp_?SetBlendMode@Sprite@GF1@@QAEXW4BlendMode@12@@Z) referenced in function "public: __thiscall CarDemo::EditorInterface::EditorInterface(void)" (??0EditorInterface@CarDemo@@QAE@XZ)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __thiscall GF1::Sound::Bad(void)const " (__imp_?Bad@Sound@GF1@@QBE_NXZ) referenced in function "private: void __thiscall CarDemo::EditorInterface::VerifySound(class GF1::Sound const &)" (?VerifySound@EditorInterface@CarDemo@@AAEXABVSound@GF1@@@Z)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: char const * __thiscall GF1::Sound::GetFileName(void)const " (__imp_?GetFileName@Sound@GF1@@QBEPBDXZ) referenced in function "private: void __thiscall CarDemo::EditorInterface::VerifySound(class GF1::Sound const &)" (?VerifySound@EditorInterface@CarDemo@@AAEXABVSound@GF1@@@Z)
+     1>EditorInterface.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::print(class GF1::Sprite *,class GF1::Vector3 const &,char const *,class GF1::Colour const &)" (__imp_?print@GF1@@YAXPAVSprite@1@ABVVector3@1@PBDABVColour@1@@Z) referenced in function "private: void __thiscall CarDemo::EditorInterface::DisplayFPS(void)" (?DisplayFPS@EditorInterface@CarDemo@@AAEXXZ)
+     1>EntityManager.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::print(class GF1::Sprite *,class GF1::Vector3 const &,char const *,class GF1::Colour const &)" (__imp_?print@GF1@@YAXPAVSprite@1@ABVVector3@1@PBDABVColour@1@@Z)
+     1>GameInterface.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::print(class GF1::Sprite *,class GF1::Vector3 const &,char const *,class GF1::Colour const &)" (__imp_?print@GF1@@YAXPAVSprite@1@ABVVector3@1@PBDABVColour@1@@Z)
+     1>Main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall GF1::Application::Application(char const *)" (__imp_??0Application@GF1@@QAE@PBD@Z) referenced in function _main
+     1>Main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall GF1::Application::~Application(void)" (__imp_??1Application@GF1@@UAE@XZ) referenced in function "public: virtual void * __thiscall GF1::Application::`scalar deleting destructor'(unsigned int)" (??_GApplication@GF1@@UAEPAXI@Z)
+     1>Main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) char const * __cdecl GF1::GetVersion(void)" (__imp_?GetVersion@GF1@@YAPBDXZ) referenced in function _main
+     1>Main.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) void __cdecl GF1::ReleaseAllTexture(void)" (__imp_?ReleaseAllTexture@GF1@@YAXXZ) referenced in function _main
+     1>Main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall GF1::Application::GetLogicFrequency(void)const " (?GetLogicFrequency@Application@GF1@@UBEHXZ)
+     1>Main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall GF1::Application::GetLogicInterval(void)const " (?GetLogicInterval@Application@GF1@@UBEHXZ)
+     1>Main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall GF1::Application::GetRenderWindowClientHeight(void)const " (?GetRenderWindowClientHeight@Application@GF1@@UBEHXZ)
+     1>Main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall GF1::Application::GetRenderWindowClientWidth(void)const " (?GetRenderWindowClientWidth@Application@GF1@@UBEHXZ)
+     1>Main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall GF1::Application::Run(class GF1::IGame &,bool)" (?Run@Application@GF1@@UAEXAAVIGame@2@_N@Z)
+     1>Main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall GF1::Application::SetLogicFreqency(int)" (?SetLogicFreqency@Application@GF1@@UAEXH@Z)
+     1>Main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall GF1::Application::SetRenderWindowClientSize(int,int)" (?SetRenderWindowClientSize@Application@GF1@@UAEXHH@Z)
+     1>Main.obj : error LNK2001: unresolved external symbol "public: virtual float __thiscall GF1::Application::WindowClientToWorldX(int)" (?WindowClientToWorldX@Application@GF1@@UAEMH@Z)
+     1>Main.obj : error LNK2001: unresolved external symbol "public: virtual float __thiscall GF1::Application::WindowClientToWorldY(int)" (?WindowClientToWorldY@Application@GF1@@UAEMH@Z)
+     1>TrackPolygon.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) class GF1::Vector3 __cdecl GF1::operator+(class GF1::Vector3 const &,class GF1::Vector3 const &)" (__imp_??HGF1@@YA?AVVector3@0@ABV10@0@Z) referenced in function "public: void __thiscall CarDemo::TrackPolygon::DrawPolySegmentNormals(void)" (?DrawPolySegmentNormals@TrackPolygon@CarDemo@@QAEXXZ)
+     1>TrackPolygon.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) class GF1::Vector3 __cdecl GF1::operator*(class GF1::Vector3 const &,float)" (__imp_??DGF1@@YA?AVVector3@0@ABV10@M@Z) referenced in function "public: void __thiscall CarDemo::TrackPolygon::DrawPolySegmentNormals(void)" (?DrawPolySegmentNormals@TrackPolygon@CarDemo@@QAEXXZ)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::BLACK" (__imp_?BLACK@Colour@GF1@@2V12@B)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::YELLOW" (__imp_?YELLOW@Colour@GF1@@2V12@B)
+     1>TrackPolygon.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class GF1::Colour const GF1::Colour::ORANGE" (__imp_?ORANGE@Colour@GF1@@2V12@B)
+     1>../bin\Game_d.exe : fatal error LNK1120: 48 unresolved externals
+     1>Done Building Project "J:\Game\Junior\GameAI\GameAIFinal\Assets\Neural-Network-master\Neural Network Source Code\Game\Game.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:05.03
