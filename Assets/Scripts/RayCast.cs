@@ -43,7 +43,7 @@ public class RayCast : MonoBehaviour {
 		dis_l = hit_l.distance;
 		dis_fl = hit_fl.distance;
 		dis_f = hit_f.distance;
-		dis_fr = hit_f.distance;
+		dis_fr = hit_fr.distance;
 		dis_r = hit_r.distance;
 
 	}
