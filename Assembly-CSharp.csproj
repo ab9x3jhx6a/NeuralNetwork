@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Agent.cs" />
      <Compile Include="Assets\Scripts\Motor.cs" />
-     <Compile Include="Assets\Scripts\NNet.cs" />
      <Compile Include="Assets\Scripts\RayCast.cs" />
      <Compile Include="Assets\Scripts\hit.cs" />
      <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\ExportedNNs\UberNeuralNet1.txt" />

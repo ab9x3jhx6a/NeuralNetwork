@@ -2,19 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{b5745e78-4781-48e5-9c48-ec45bea822dc}</UniqueIdentifier>
+      <UniqueIdentifier>{b22bc818-2c11-4c28-a955-4b04bf0d5791}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Clarity Math">
-      <UniqueIdentifier>{e25cf4fc-e606-49d7-a712-cd47b4c5403d}</UniqueIdentifier>
+      <UniqueIdentifier>{9ace8a44-c7e9-4bfa-968b-a107df14277d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{16900c6e-56ea-411f-bed1-c9b0eb14a5e9}</UniqueIdentifier>
+      <UniqueIdentifier>{41f8b1e9-d32d-477a-9062-fe0900924fec}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{008ffd72-15b6-48a6-b45d-100e44ec5ef3}</UniqueIdentifier>
+      <UniqueIdentifier>{45df2083-197e-41c3-ba3d-4cdff9db16b8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Clarity Math">
-      <UniqueIdentifier>{4376c3df-2f73-4d5f-a755-d7d1555312be}</UniqueIdentifier>
+      <UniqueIdentifier>{90c69c6d-c6cb-4b53-8633-48ff29c8a050}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
