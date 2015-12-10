@@ -13,8 +13,8 @@ public class Agent : MonoBehaviour {
 	public RayCast raycast;
 	public float l,fl,f,fr,r;
 
-	public float MAX_ROTATION; //max rotate speed
-	public float _SPEED;
+	public float MAX_ROTATION = 0.1f; //max rotate speed
+	public float _SPEED = 0.1f;
 
 	public float leftForce;
 	public float rightForce;
@@ -68,8 +68,6 @@ public class Agent : MonoBehaviour {
 
 			leftForce = neuralnet.GetOutput(0);
 			rightForce = neuralnet.GetOutput(1);
-			Debug.Log (leftForce);
-			Debug.Log (rightForce);
 
 			leftTheta = MAX_ROTATION * leftForce;
 			rightTheta = MAX_ROTATION * rightForce;
@@ -94,8 +92,6 @@ public class Agent : MonoBehaviour {
 		return val;
 	}
 }
-
-
 
 public class NNet {
 	private int inputAmount;
@@ -357,11 +353,9 @@ public class Neuron {
 		if (val < min) {
 			return min;
 		}
-		
 		if (val > max) {
 			return max;
 		}
-		
 		return val;
 	}
 	
