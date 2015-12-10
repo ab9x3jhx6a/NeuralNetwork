@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{E0F56991-0DFE-8536-022A-7B4AC3D5FA35}</ProjectGuid>
+	<ProjectGuid>{1D7C8A8B-AF74-AE1A-F905-01F90D95401C}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,7 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Agent.cs" />
      <Compile Include="Assets\Scripts\Motor.cs" />
+     <Compile Include="Assets\Scripts\NNet.cs" />
+     <Compile Include="Assets\Scripts\RayCast.cs" />
      <Compile Include="Assets\Scripts\hit.cs" />
      <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\ExportedNNs\UberNeuralNet1.txt" />
      <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\ExportedNNs\UberNeuralNet2.txt" />
