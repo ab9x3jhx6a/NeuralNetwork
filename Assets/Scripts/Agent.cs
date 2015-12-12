@@ -13,8 +13,8 @@ public class Agent : MonoBehaviour {
 	public RayCast raycast;
 	public float l,fl,f,fr,r;
 
-	public float MAX_ROTATION = 0.1f; //max rotate speed
-	public float _SPEED = 0.1f;
+	public float MAX_ROTATION; //max rotate speed
+	public float _SPEED;
 
 	public float leftForce;
 	public float rightForce;

@@ -33,7 +33,7 @@ public class Motor : MonoBehaviour {
 		lefttheta = agent.leftTheta;
 		righttheta = agent.rightTheta;
 
-		float angle = (lefttheta - righttheta) * Time.deltaTime;
+		float angle = (lefttheta - righttheta);
 
 		transform.Rotate (new Vector3 (0, angle, 0));
 
