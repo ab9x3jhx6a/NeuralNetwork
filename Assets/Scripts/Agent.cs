@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Agent : MonoBehaviour {
-	private bool hasFailed;
+	public bool hasFailed = false;
 	private float distanceDelta;
 
 	private int collidedCorner;
@@ -21,8 +21,14 @@ public class Agent : MonoBehaviour {
 	public float leftTheta;
 	public float rightTheta;
 
+	public float dist;
+
+	hit hit;
+
 	// Use this for initialization
 	void Start () {
+		hasFailed = false;
+
 		neuralnet = new NNet ();
 		neuralnet.CreateNet (1, 5, 8, 2);
 		raycast = gameObject.GetComponent<RayCast> ();
@@ -37,15 +43,29 @@ public class Agent : MonoBehaviour {
 		rightForce = 0.0f;
 		leftTheta = 0.0f;
 		rightTheta = 0.0f;
+
+		hit = gameObject.GetComponent<hit> ();
+		
 	}
 
-	float Normalise(float i){
+	public float Normalise(float i){
 		float depth = i / raycast.RayCast_Length;
 		return 1 - depth;
 	}
 
+	public void Attach(NNet net){
+		neuralnet = net;
+	}
+
+	public void ClearFailure(){
+		hasFailed = false;
+		hit.crash = false;
+		collidedCorner = -1;
+	}
+
 	// Update is called once per frame
 	void Update () {
+		dist+=0.2f;
 		//update raycast hit distance
 		l = raycast.dis_l;
 		fl = raycast.dis_fl;
@@ -199,8 +219,15 @@ public class NNet {
 		NLayer hidden = new NLayer ();
 		
 		List<Neuron> neurons = new List<Neuron>();
+
 		for(int i=0; i<neuronsPerHidden; i++){
+			//init
+			neurons.Add(new Neuron());
 			List<float> weights = new List<float>();
+			//init
+			for(int k=0; k<i*neuronsPerHidden + numofInputs+1; k++){
+				weights.Add(0.0f);
+			}
 			
 			for(int j=0; j<numofInputs+1;j++){
 				weights[j] = genome.weights[i*neuronsPerHidden + j];
@@ -213,11 +240,16 @@ public class NNet {
 		//Clear weights and reasign the weights to the output
 		int weightsForOutput = neuronsPerHidden * numOfOutputs;
 		neurons.Clear ();
-		
+
+
+
 		for(int i=0; i<numOfOutputs; i++){
+			neurons.Add(new Neuron());
+
 			List<float> weights = new List<float>();
 			
 			for(int j=0; j<neuronsPerHidden + 1; j++){
+				weights.Add (0.0f);
 				weights[j] = genome.weights[i*neuronsPerHidden + j];
 			}
 			neurons[i].Initilise(weights, neuronsPerHidden);
@@ -374,7 +406,6 @@ public class Neuron {
 	public void Initilise(List<float> weightsIn, int num){
 		this.numInputs = num;
 		weights = weightsIn;
-		
 	}
 }
 

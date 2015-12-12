@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GA : MonoBehaviour {
+public class GA {
 
 	private int currentGenome;
 	private int totalPopulation;
@@ -13,8 +13,8 @@ public class GA : MonoBehaviour {
 	public float MUTATION_RATE;//0.15f
 	public float MAX_PERBETUATION;//0.3f
 
-	List<Genome> population;
-	List<int> crossoverSplits;
+	public List<Genome> population = new List<Genome>();
+	public List<int> crossoverSplits = new List<int>();
 
 	public GA(){
 		this.currentGenome = -1;
@@ -31,6 +31,10 @@ public class GA : MonoBehaviour {
 		return population [this.currentGenome];
 	}
 
+	public void SetThisGenome(Genome g){
+		population [this.currentGenome] = g;
+	}
+
 	public Genome GetBestGenome() {
 		int bestGenome = -1;
 		float fitness = 0;
@@ -42,7 +46,7 @@ public class GA : MonoBehaviour {
 		return population [bestGenome];
 	}
 
-	public float GetWorstGenome(){
+	public Genome GetWorstGenome(){
 		int worstGenome = -1;
 		float fitness = 1000000.0f;
 		for (int i=0; i < population.Count; i++) {
@@ -51,6 +55,8 @@ public class GA : MonoBehaviour {
 				worstGenome = i;
 			}
 		}
+
+		return population [worstGenome];
 	}
 
 	public Genome GetGenome(int index){
@@ -182,9 +188,10 @@ public class GA : MonoBehaviour {
 			Genome genome = new Genome();
 			genome.ID = genomeID;
 			genome.fitness = 0.0f;
+			genome.weights = new List<float>();
 			//resize
 			for (int k=0; k<totalWeights; k++){
-				genome.weights.Add(RandomClamped);
+				genome.weights.Add(RandomClamped());
 			}
 
 			genomeID++;
@@ -193,13 +200,13 @@ public class GA : MonoBehaviour {
 	}
 
 	public void BreedPopulation() {
-		List<Genome> bestGenomes;
+		List<Genome> bestGenomes = new List<Genome>();
 
 		//find the 4 best genomes
-		this.GetBestCases (4, bestGenomes);
+		this.GetBestCases (4, ref bestGenomes);
 
 		//Breed them with each other twice to form 3*2 + 2*2 + 1*2 = 12 children
-		List<Genome> children;
+		List<Genome> children = new List<Genome>();
 
 		//Carry on the best
 		Genome best = new Genome ();
@@ -214,29 +221,29 @@ public class GA : MonoBehaviour {
 		Genome baby2 = null;
 
 		// Breed with genome 0.
-		CrossBreed(bestGenomes[0], bestGenomes[1], baby1, baby2);
+		CrossBreed(bestGenomes[0], bestGenomes[1], ref baby1, ref baby2);
 		Mutate(baby1);
 		Mutate(baby2);
 		children.Add(baby1);
 		children.Add(baby2);
-		CrossBreed(bestGenomes[0], bestGenomes[2], baby1, baby2);
+		CrossBreed(bestGenomes[0], bestGenomes[2], ref baby1, ref baby2);
 		Mutate(baby1);
 		Mutate(baby2);
 		children.Add(baby1);
 		children.Add(baby2);
-		CrossBreed(bestGenomes[0], bestGenomes[3], baby1, baby2);
+		CrossBreed(bestGenomes[0], bestGenomes[3], ref baby1, ref baby2);
 		Mutate(baby1);
 		Mutate(baby2);
 		children.Add(baby1);
 		children.Add(baby2);
 		
 		// Breed with genome 1.
-		CrossBreed(bestGenomes[1], bestGenomes[2], baby1, baby2);
+		CrossBreed(bestGenomes[1], bestGenomes[2], ref baby1, ref baby2);
 		Mutate(baby1);
 		Mutate(baby2);
 		children.Add(baby1);
 		children.Add(baby2);
-		CrossBreed(bestGenomes[1], bestGenomes[3], baby1, baby2);
+		CrossBreed(bestGenomes[1], bestGenomes[3], ref baby1, ref baby2);
 		Mutate(baby1);
 		Mutate(baby2);
 		children.Add(baby1);

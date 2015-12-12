@@ -16,7 +16,6 @@ public class Motor : MonoBehaviour {
 		speed = agent._SPEED;
 
 		heading = transform.rotation.eulerAngles.y - 90;
-		Debug.Log (heading);
 
 		leftsteer = 0.0f;
 		rightsteer = 0.0f;

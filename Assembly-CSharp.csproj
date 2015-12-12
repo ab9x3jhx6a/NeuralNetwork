@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Agent.cs" />
+     <Compile Include="Assets\Scripts\Entity.cs" />
      <Compile Include="Assets\Scripts\GA.cs" />
      <Compile Include="Assets\Scripts\Motor.cs" />
      <Compile Include="Assets\Scripts\RayCast.cs" />
