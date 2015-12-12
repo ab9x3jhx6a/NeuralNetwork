@@ -47,23 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Agent.cs" />
+     <Compile Include="Assets\Scripts\GA.cs" />
      <Compile Include="Assets\Scripts\Motor.cs" />
      <Compile Include="Assets\Scripts\RayCast.cs" />
      <Compile Include="Assets\Scripts\Steer.cs" />
      <Compile Include="Assets\Scripts\hit.cs" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\ExportedNNs\UberNeuralNet1.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\ExportedNNs\UberNeuralNet2.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\Game\include\Template.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\GF1\Docs\GF1_ProjectSettings.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\Track1Checkpoints.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\GF1\Docs\GF1_ReleaseNotes.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\GF1\Docs\GF1_PlannedFeatures.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\ExportedNNs\NeuralNet.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\ExportedNNs\UberNeuralNet4.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\ExportedNNs\UberNeuralNet3.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\ExportedNNs\UberNeuralNet5.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\bin\Resources\Track1Polygon.txt" />
-     <None Include="Assets\Neural-Network-master\Neural Network Source Code\Game\include\Resources.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>J:/Game/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
