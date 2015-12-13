@@ -15,11 +15,24 @@ public class Entity : MonoBehaviour {
 
 	public GA genAlg;
 	public int checkpoints;
+	public GameObject[] CPs;
+	public Material normal;
 
 	private Vector3 defaultpos;
 	private Quaternion defaultrot;
 
 	hit hit;
+
+	public void OnGUI(){
+		int x = 600;
+		int y = 400;
+		GUI.Label (new Rect (x, y, 200, 20), "CurrentFitness: " + currentAgentFitness);
+		GUI.Label (new Rect (x, y+20, 200, 20), "BestFitness: " + bestFitness);
+		GUI.Label (new Rect (x+200, y, 200, 20), "Genome: " + genAlg.currentGenome + " of " + genAlg.totalPopulation);
+		GUI.Label (new Rect (x+200, y + 20, 200, 20), "Generation: " + genAlg.generation);
+
+	}
+
 	// Use this for initialization
 	void Start () {
 
@@ -30,21 +43,22 @@ public class Entity : MonoBehaviour {
 		bestFitness = 0.0f;
 
 		neuralNet = new NNet ();
+		neuralNet.CreateNet (1, 5, 8, 2);
 		Genome genome = genAlg.GetNextGenome ();
-		neuralNet.FromGenome (ref genome, 5, 8, 2);
-		genAlg.SetThisGenome (genome);
+		neuralNet.FromGenome (genome, 5, 8, 2);
 
 		testAgent = gameObject.GetComponent<Agent>();
 		testAgent.Attach (neuralNet);
 
 		hit = gameObject.GetComponent<hit> ();
 		checkpoints = hit.checkpoints;
-		defaultpos = hit.init_pos;
-		defaultrot = hit.init_rotation;
+		defaultpos = transform.position;
+		defaultrot = transform.rotation;
 	}
 
 	// Update is called once per frame
 	void Update () {
+		checkpoints = hit.checkpoints;
 		if (testAgent.hasFailed) {
 			if(genAlg.GetCurrentGenomeIndex() == 15-1){
 				EvolveGenomes();
@@ -52,7 +66,7 @@ public class Entity : MonoBehaviour {
 			}
 			NextTestSubject();
 		}
-		currentAgentFitness += testAgent.dist;
+		currentAgentFitness = testAgent.dist;
 		if (currentAgentFitness > bestFitness) {
 			bestFitness = currentAgentFitness;
 		}
@@ -63,13 +77,23 @@ public class Entity : MonoBehaviour {
 		currentAgentFitness = 0.0f;
 		Genome genome = genAlg.GetNextGenome ();
 
-		neuralNet.FromGenome (ref genome, 5, 8, 2);
+		neuralNet.FromGenome (genome, 5, 8, 2);
+
+		transform.position = defaultpos;
+		transform.rotation = defaultrot;
 
 		testAgent.Attach (neuralNet);
 		testAgent.ClearFailure ();
 
-		//reset the checkpoints
 
+
+		//reset the checkpoints
+		CPs = GameObject.FindGameObjectsWithTag ("Checkpoint");
+
+		foreach (GameObject c in CPs) {
+			Renderer tmp = c.gameObject.GetComponent<Renderer>();
+			tmp.material = normal;
+		}
 	}
 
 	public void BreedNewPopulation(){

@@ -48,6 +48,48 @@ public class Agent : MonoBehaviour {
 		
 	}
 
+	// Update is called once per frame
+	void Update () {
+		hasFailed = hit.crash;
+
+		//update raycast hit distance
+		l = raycast.dis_l;
+		fl = raycast.dis_fl;
+		f = raycast.dis_f;
+		fr = raycast.dis_fr;
+		r = raycast.dis_fr;
+		
+		
+		if (!hasFailed) {
+			dist += Time.deltaTime;
+			List<float> inputs = new List<float> ();
+			inputs.Add (Normalise (l));
+			inputs.Add (Normalise (fl));
+			inputs.Add (Normalise (f));
+			inputs.Add (Normalise (fr));
+			inputs.Add (Normalise (r));
+			
+			neuralnet.SetInput (inputs);
+			neuralnet.refresh ();
+			
+			leftForce = neuralnet.GetOutput (0);
+			rightForce = neuralnet.GetOutput (1);
+			
+			leftTheta = MAX_ROTATION * leftForce;
+			rightTheta = MAX_ROTATION * rightForce;
+			
+			headingAngle += (leftTheta - rightTheta) * Time.deltaTime;
+			
+			float speed = (Mathf.Abs (leftForce + rightForce)) / 2;
+			speed *= _SPEED;
+			
+			speed = Clamp (speed, -_SPEED, _SPEED);
+			
+		} else {
+			dist = 0.0f;
+		}
+	}
+
 	public float Normalise(float i){
 		float depth = i / raycast.RayCast_Length;
 		return 1 - depth;
@@ -60,46 +102,8 @@ public class Agent : MonoBehaviour {
 	public void ClearFailure(){
 		hasFailed = false;
 		hit.crash = false;
+		dist = 0.0f;
 		collidedCorner = -1;
-	}
-
-	// Update is called once per frame
-	void Update () {
-		dist+=0.2f;
-		//update raycast hit distance
-		l = raycast.dis_l;
-		fl = raycast.dis_fl;
-		f = raycast.dis_f;
-		fr = raycast.dis_fr;
-		r = raycast.dis_fr;
-
-
-		if (!hasFailed) {
-
-			List<float> inputs = new List<float>();
-			inputs.Add(Normalise(l));
-			inputs.Add(Normalise(fl));
-			inputs.Add(Normalise(f));
-			inputs.Add(Normalise(fr));
-			inputs.Add(Normalise(r));
-
-			neuralnet.SetInput(inputs);
-			neuralnet.refresh();
-
-			leftForce = neuralnet.GetOutput(0);
-			rightForce = neuralnet.GetOutput(1);
-
-			leftTheta = MAX_ROTATION * leftForce;
-			rightTheta = MAX_ROTATION * rightForce;
-
-			headingAngle += (leftTheta - rightTheta) * Time.deltaTime;
-
-			float speed = (Mathf.Abs(leftForce + rightForce)) / 2;
-			speed *= _SPEED;
-
-			speed = Clamp(speed, -_SPEED, _SPEED);
-
-		}
 	}
 
 	public float Clamp (float val, float min, float max){
@@ -128,7 +132,7 @@ public class NNet {
 
 	public void refresh(){
 		outputs.Clear ();
-		
+
 		for (int i=0; i < hiddenLayers.Count; i++) {
 			if(i > 0){
 				inputs = outputs;
@@ -136,10 +140,10 @@ public class NNet {
 			hiddenLayers[i].Evaluate(inputs, ref outputs);
 			
 		}
-		
 		inputs = outputs;
 		//Process the layeroutputs through the output layer to
 		outputLayer.Evaluate (inputs, ref outputs);
+
 	}
 	
 	public void SetInput(List<float> input){
@@ -173,9 +177,11 @@ public class NNet {
 	public void ReleaseNet(){
 		if (inputlayer != null) {
 			inputlayer = null;
+			inputlayer = new NLayer();
 		}
 		if (outputLayer != null) {
 			outputLayer = null;
+			outputLayer = new NLayer();
 		}
 		for (int i=0; i<hiddenLayers.Count; i++) {
 			if(hiddenLayers[i]!=null){
@@ -183,6 +189,7 @@ public class NNet {
 			}
 		}
 		hiddenLayers.Clear ();
+		hiddenLayers = new List<NLayer> ();
 	}
 	
 	public int GetNumofHIddenLayers(){
@@ -209,7 +216,7 @@ public class NNet {
 		return genome;
 	}
 	
-	public void FromGenome(ref Genome genome, int numofInputs, int neuronsPerHidden, int numOfOutputs){
+	public void FromGenome(Genome genome, int numofInputs, int neuronsPerHidden, int numOfOutputs){
 		ReleaseNet ();
 		
 		outputAmount = numOfOutputs;
@@ -225,26 +232,25 @@ public class NNet {
 			neurons.Add(new Neuron());
 			List<float> weights = new List<float>();
 			//init
-			for(int k=0; k<i*neuronsPerHidden + numofInputs+1; k++){
-				weights.Add(0.0f);
-			}
 			
 			for(int j=0; j<numofInputs+1;j++){
+				weights.Add(0.0f);
 				weights[j] = genome.weights[i*neuronsPerHidden + j];
 			}
+			neurons[i].weights = new List<float>();
 			neurons[i].Initilise(weights, numofInputs);
 		}
 		hidden.LoadLayer (neurons);
+		//Debug.Log ("fromgenome, hiddenlayer neruons#: " + neurons.Count);
+		//Debug.Log ("fromgenome, hiddenlayer numInput: " + neurons [0].numInputs);
 		this.hiddenLayers.Add (hidden);
 		
 		//Clear weights and reasign the weights to the output
 		int weightsForOutput = neuronsPerHidden * numOfOutputs;
-		neurons.Clear ();
-
-
+		List<Neuron> outneurons = new List<Neuron> ();
 
 		for(int i=0; i<numOfOutputs; i++){
-			neurons.Add(new Neuron());
+			outneurons.Add(new Neuron());
 
 			List<float> weights = new List<float>();
 			
@@ -252,10 +258,13 @@ public class NNet {
 				weights.Add (0.0f);
 				weights[j] = genome.weights[i*neuronsPerHidden + j];
 			}
-			neurons[i].Initilise(weights, neuronsPerHidden);
+			outneurons[i].weights = new List<float>();
+			outneurons[i].Initilise(weights, neuronsPerHidden);
 		}
-		outputLayer = new NLayer ();
-		this.outputLayer.LoadLayer (neurons);
+		this.outputLayer = new NLayer ();
+		this.outputLayer.LoadLayer (outneurons);
+		//Debug.Log ("fromgenome, outputlayer neruons#: " + outneurons.Count);
+		//Debug.Log ("fromgenome, outputlayer numInput: " + outneurons [0].numInputs);
 	}
 }
 
@@ -281,13 +290,18 @@ public class NLayer {
 	
 	public void Evaluate(List<float> input, ref List<float> output){
 		int inputIndex = 0;
+		//Debug.Log ("input.count " + input.Count);
+		//Debug.Log ("totalneuron " + totalNeurons);
 		//cycle over all the neurons and sum their weights against the inputs
 		for (int i=0; i< totalNeurons; i++) {
 			float activation = 0.0f;
-			
+
+			//Debug.Log ("numInputs " + (neurons[i].numInputs - 1));
+
 			//sum the weights to the activation value
 			//we do the sizeof the weights - 1 so that we can add in the bias to the activation afterwards.
 			for(int j=0; j< neurons[i].numInputs - 1; j++){
+
 				activation += input[inputIndex] * neurons[i].weights[j];
 				inputIndex++;
 			}
@@ -301,9 +315,9 @@ public class NLayer {
 		}
 	}
 	
-	public void LoadLayer(List<Neuron> intput){
-		totalNeurons = intput.Count;
-		neurons = intput;
+	public void LoadLayer(List<Neuron> input){
+		totalNeurons = input.Count;
+		neurons = input;
 	}
 	
 	public void PopulateLayer(int numOfNeurons, int numOfInputs){

@@ -7,8 +7,11 @@ public class hit : MonoBehaviour {
 	public Vector3 init_pos;
 	public Quaternion init_rotation;
 	public bool crash;
+
+	Agent agent;
 	// Use this for initialization
 	void Start () {
+		agent = gameObject.GetComponent<Agent> ();
 		crash = false;
 		checkpoints = 0;
 		init_pos = transform.position;
@@ -25,10 +28,10 @@ public class hit : MonoBehaviour {
 			Renderer tmp = other.gameObject.GetComponent<Renderer> ();
 			tmp.material = Passed;
 			checkpoints++;
+			agent.dist += 1.0f;
 		} else {
 			//hit a wall considered fail
-			transform.position = init_pos;
-			transform.rotation = init_rotation;
+			//checkpoints = 0;
 			crash = true;
 		}
 	}

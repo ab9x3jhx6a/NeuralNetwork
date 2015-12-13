@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public class GA {
 
-	private int currentGenome;
-	private int totalPopulation;
+	public int currentGenome;
+	public int totalPopulation;
 	private int genomeID;
-	private int generation;
+	public int generation;
 	private int totalGenomeWeights;
 
-	public float MUTATION_RATE;//0.15f
-	public float MAX_PERBETUATION;//0.3f
+	public float MUTATION_RATE;
+	public float MAX_PERBETUATION;
 
 	public List<Genome> population = new List<Genome>();
 	public List<int> crossoverSplits = new List<int>();
@@ -21,18 +21,16 @@ public class GA {
 		this.totalPopulation = 0;
 		genomeID = 0;
 		generation = 1;
+		MUTATION_RATE = 0.15f;
+		MAX_PERBETUATION = 0.3f;
 	}
-
+		
 	public Genome GetNextGenome(){
 		currentGenome++;
 		if (currentGenome >= population.Count )
 			return null;
 
 		return population [this.currentGenome];
-	}
-
-	public void SetThisGenome(Genome g){
-		population [this.currentGenome] = g;
 	}
 
 	public Genome GetBestGenome() {
@@ -129,6 +127,7 @@ public class GA {
 
 		baby1 = new Genome ();
 		baby1.ID = genomeID;
+		baby1.weights = new List<float> ();
 		//resize
 		for(int i=0; i<totalWeights; i++){
 			baby1.weights.Add (0.0f);
@@ -137,6 +136,7 @@ public class GA {
 
 		baby2 = new Genome ();
 		baby2.ID = genomeID;
+		baby2.weights = new List<float> ();
 		//resize
 		for (int i=0; i<totalWeights; i++) {
 			baby2.weights.Add (0.0f);
@@ -159,6 +159,7 @@ public class GA {
 		Genome genome = new Genome ();
 		genome.ID = genomeID;
 		genome.fitness = 0.0f;
+		genome.weights = new List<float> ();
 		//resize
 		for (int i=0; i<totalWeights; i++) {
 			genome.weights.Add(0.0f);
@@ -217,8 +218,8 @@ public class GA {
 		children.Add (best);
 
 		//Child genomes
-		Genome baby1 = null;
-		Genome baby2 = null;
+		Genome baby1 = new Genome();
+		Genome baby2 = new Genome();
 
 		// Breed with genome 0.
 		CrossBreed(bestGenomes[0], bestGenomes[1], ref baby1, ref baby2);
@@ -258,7 +259,7 @@ public class GA {
 		ClearPopulation ();
 		population = children;
 
-		currentGenome = -1;
+		currentGenome = 0;
 		generation++;
 	}
 
@@ -268,7 +269,6 @@ public class GA {
 				population[i] = null;
 			}
 		}
-
 		population.Clear ();
 	}
 
@@ -281,9 +281,12 @@ public class GA {
 	}
 
 	public void SetGenomeFitness(float fitness, int index){
-		if (index >= population.Count)
+		if (index >= population.Count) {
 			return;
-		population [index].fitness = fitness;
+		}
+		else {
+			population [index].fitness = fitness;
+		}
 	}
 
 	public float RandomFloat()
