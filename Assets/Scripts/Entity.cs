@@ -93,6 +93,8 @@ public class Entity : MonoBehaviour {
 		foreach (GameObject c in CPs) {
 			Renderer tmp = c.gameObject.GetComponent<Renderer>();
 			tmp.material = normal;
+			Checkpoint p = c.gameObject.GetComponent<Checkpoint>();
+			p.passed = false;
 		}
 	}
 

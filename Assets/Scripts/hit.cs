@@ -26,9 +26,14 @@ public class hit : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Checkpoint") {
 			Renderer tmp = other.gameObject.GetComponent<Renderer> ();
-			tmp.material = Passed;
-			checkpoints++;
-			agent.dist += 1.0f;
+			Checkpoint t = other.gameObject.GetComponent<Checkpoint>();
+			bool p = t.passed;
+			if(!p){
+				t.SetBool(true);
+				tmp.material = Passed;
+				checkpoints++;
+				agent.dist += 1.0f;
+			}
 		} else {
 			//hit a wall considered fail
 			//checkpoints = 0;

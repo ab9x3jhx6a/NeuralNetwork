@@ -102,6 +102,7 @@ public class Agent : MonoBehaviour {
 	public void ClearFailure(){
 		hasFailed = false;
 		hit.crash = false;
+		hit.checkpoints = 0;
 		dist = 0.0f;
 		collidedCorner = -1;
 	}
